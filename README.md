@@ -1,37 +1,64 @@
 # Hazard Communication Engine for Rural Counties
 
-This Google Earth Engine (GEE) tool is designed for rural communities for approximate mapping of flood inundation and associated economic losses due to building-level impacts in the Western Upper Peninsula (Michigan) of the Great Lakes region. By combining multiple datasets, the tool helps users estimate flood exposure for specific areas, identify affected assets, and gauge potential economic losses. This tool implements risk analysis methods from the FEMA FAST and HAZUS flood assessment models, which are widely used for hazard and vulnerability assessments. By adapting these established methodologies, the tool offers accurate and relevant predictions for potential flood impacts. This assessment tool provides a powerful way for rural planning agencies to understand and mitigate flood risks, supporting the development of targeted resilience strategies and informing resource allocation for flood preparedness.
+# Overview:
+This flood risk assessment tool in Google Earth Engine (GEE) tool is one of the three components of the Rural Hazard Resilience Tools (RHRT). The flood risk assessment tool facilitates the approximate mapping of flood inundation and the estimation of economic losses resulting from fluvial and coastal flooding. The other tools of the RHRT include a citizen science-based web application for collecting crowdsourced data, such as flood inundation depth and photographs of flood events, and a geospatial visualization platform for communicating information on flood risk, critical infrastructure, and community resilience. These tools are developed to enhance flooding and coastal disaster resilience and adaptation in rural communities across the Great Lakes region. The RHRT is currently operational in five counties of the Western Upper Peninsula (Michigan). By combining multiple datasets, the flood risk assessment tool helps users estimate flood inundation extent and depth for specific return periods (25-, 50-, 100- and 500-year floods), identify affected assets, and compute potential economic losses due to building-level impacts.
 
- Key Features
 
-The tool integrates various datasets, joining features based on location and ID to create a comprehensive view of flood exposure. Users can select an area of interest (AOI) by choosing from predefined counties or drawing a custom region on the map. Once an AOI is defined, users can analyze flood impacts across different return periods (e.g., 25, 50, 100, and 500 years). 
+The tool uses a model chain for flood inundation mapping, including the Height Above the Nearest Drainage (HAND), Synthetic Rating Curves (SRCs), Simulating WAves Nearshore (SWAN) model, United States Geological Survey (USGS) regional regression equations. For estimating flood losses due to building-level impacts, the tool utilizes the depth-damage functions of the HAZUS-MH flood model and HAZUS Flood Assessment Structure Tool (FAST). The tool also incorporates ancillary datasets, such as gridded dasymetric population data and the National Land Cover Database (NLCD) 2021 to estimate the affected population and agricultural areas quantitatively. By integrating these established models and methodologies, this tool provides reasonably accurate predictions of potential flood impacts. The RHRT serves as a crucial platform for communicating situational awareness, devising response plans, implementing targeted mitigation measures in development planning, allocating adequate resources, making informed decisions, and enhancing disaster resilience, and ultimately building sustainable, climate-resilient communities across the Great Lakes region.
 
-The tool estimates a wide range of impacts, including:
-- Flooded Area: Calculates the flooded land area in hectares.
-- Affected Cropland: Identifies cropland within flood zones.
-- Exposed Population: Estimates the number of people at risk in flooded areas.
-- Economic Losses: Provides assessments for building and content losses based on depth of flooding.
-- Debris Generation: Estimates the volume of debris resulting from the flood.
-- Restoration Timeframes: Predicts the days required for restoring affected areas.
 
-Each of these metrics can be visualized on the map, with the tool providing color-coded overlays to distinguish between affected asset types, such as residential, agricultural, and commercial properties.
+# Key Features: 
+The flood risk assessment tool integrates various datasets to generate a comprehensive overview of flood risk. Users can select an area of interest (AOI) either by choosing the predefined counties of the Western Upper Peninsula or drawing a custom region on the map. Once an AOI is defined, users can analyze flood risk across different return periods (25-, 50-, 100-, and 500-years). The tool computes various flood inundation characteristics and economic losses, including:
+  - Inundation area and depth: Calculates the areal extent (in hectares) and average depth (in feet) of the flooded area.
+  - Economic Losses: Estimates economic losses (in US$) due to building-level impacts.
+  - Affected Cropland: Computes the areal coverage (in hectares) of cropland within the flood zone.
+  - Exposed Population: Estimates the number of people at risk in flooded areas.
+  - Debris Generation: Estimates the debris generated (in tons) because of flood events.
+  - Restoration Time: Predicts the number of days required to restore the buildings.
+The tool also provides color-coded overlays to distinguish between affected assets, such as residential, agricultural, and commercial buildings.
 
- Usage Instructions
 
-1. Select an AOI: Users can select a county from a dropdown list or define a custom AOI by drawing on the map.
-2. Choose Flood Scenario: Click the button corresponding to a desired flood return period (e.g., 25, 50, 100, or 500 years).
-3. View Results: The tool presents a summary of impacts, including flood extent, building and content losses, population exposure, debris, and restoration days. Results are shown in an interactive panel.
-4. Export Data: An export option allows users to download the results as a CSV file for further analysis.
+# Usage Instructions:
+  1. Select an AOI: Users can choose a county from the dropdown list or define a custom AOI by drawing a polygon on the map.
+  2. Choose flood return period: Click the button corresponding to the desired flood return period (25-, 50-, 100-, and 500-years). This action executes the tool and generates results in a widget panel.
+  3. View Results: The tool displays a summary of impacts, including flood extent, building and content losses, population exposure, debris, and restoration days in the panel.
+  4. Export Data: Users can download the results as a CSV file for further analysis using the export option.
 
- Datasets and Customization
-
+# Datasets and Customization:
 The tool is preconfigured with specific datasets, including:
-- Hydrological Data: Inundation depth and flood extent layers.
-- Infrastructure Data: Locations and details for buildings, hospitals, airports, and ports.
-- Land Use: NLCD data to classify cropland.
-- Population: Gridded population data for exposure analysis.
+  - Flood inundation data: Raster layers, indicating extent and depth indicating flood extent and depth, generated using HAND-SRC and SWAN models.
+  - Building and other infrastructure data: Location and attributes for buildings and other critical infrastructure. Building attributes include occupancy type, replacement cost (in US$), area (in square feet), number of stories, foundation type, first-floor elevation       or height above grade of finished first floor (in feet). Refer to the HAZUS-MH technical manual for data formats and details.
+  - Land use: NLCD 2021 data to identify agricultural areas and cropland.
+  - Population: Gridded dasymetric population data for exposure analysis.
 
-However, all datasets can be replaced with user-specific data to provide customized results for other areas or counties of interest.
+
+Users can replace these datasets with their own specific data to adapt the tool for other geographical areas. 
+The RHRT was developed with the financial support from the US National Science Foundation. For more details about the RHRT, you may visit this: https://www.wuppdr.org/rhrt. A detailed description of the flood risk assessment tool, its methodological framework and model performance evaluation can be found at these articles: https://doi.org/10.1016/j.jglr.2025.102510 and https://doi.org/10.1007/s12145-023-01218-x. The analytical capabilities of the RHRT are being expanded under the Center for Climate-driven Hazard Adaptation, Resilience, and Mitigation (C-CHRAM), a climate resilience center funded by the US Department of Energy at Michigan Technological University. You can learn more about C-CHRAM here: https://c-charm.org
+
+# Publications and other web resources:
+
+  1. https://doi.org/10.1016/j.jglr.2025.102510
+  2. https://doi.org/10.1007/s12145-023-01218-x
+  3. https://doi.org/10.37099/mtu.dc.etdr/1735
+  4. https://www.wrri.msstate.edu/conference/wrri_conference_2024.pdf
+  5. https://hazards.colorado.edu/uploads/poster_session/Rai_2023NHWPoster-min.pdf
+  6. https://www.acsp.org/resource/collection/59C8DA2D-F881-4A31-8980-FC9A8E83D780/ACSP2023_Book_of_Abstracts.pdf
+  7. https://cdn.ymaws.com/www.acsp.org/resource/collection/59C8DA2D-F881-4A31-8980-FC9A8E83D780/ACSP2023_Book_of_Abstracts.pdf
+  8. https://agu.confex.com/agu/fm22/meetingapp.cgi/Paper/1100238
+  9. https://agu.confex.com/agu/fm22/meetingapp.cgi/Paper/1164701
+  10. https://www.wuppdr.org/rhrt
+  11. https://survey123.arcgis.com/share/dfe8032771644213b4fe96774b4c11d7
+  12. https://rhrt.users.earthengine.app/view/hazard-communication-engine-for-rural-counties
+  13. https://experience.arcgis.com/experience/fe4b7cd74dae4c928302ba1bcd040a11
+  14. https://c-charm.org
+  15. https://m.facebook.com/RuralHazardResilienceTools/
+  16.https://www.instagram.com/ruralhazardresiliencetools/?hl=en
+  17. https://twitter.com/ruralhaztools?lang=en
+
+The tools in the Data Processing toolbox are developed to derive the watershed attributes necessary for the USGS regional regression equations used in computing flood frequency statistics. The Catchment tool identifies the upstream contributing area of a given reach using the DEM-derived stream network and sub-basins, while the Mainstream tool identifies the mainstream of the contributing area from the stream network.
+
+
+
 
 
 
