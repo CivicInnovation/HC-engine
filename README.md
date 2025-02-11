@@ -52,7 +52,7 @@ The RHRT was developed with the financial support from the US National Science F
   13. https://experience.arcgis.com/experience/fe4b7cd74dae4c928302ba1bcd040a11
   14. https://c-charm.org
   15. https://m.facebook.com/RuralHazardResilienceTools/
-  16.https://www.instagram.com/ruralhazardresiliencetools/?hl=en
+  16. https://www.instagram.com/ruralhazardresiliencetools/?hl=en
   17. https://twitter.com/ruralhaztools?lang=en
 
 The tools in the Data Processing toolbox are developed to derive the watershed attributes necessary for the USGS regional regression equations used in computing flood frequency statistics. The Catchment tool identifies the upstream contributing area of a given reach using the DEM-derived stream network and sub-basins, while the Mainstream tool identifies the mainstream of the contributing area from the stream network.
